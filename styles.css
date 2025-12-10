@@ -20,14 +20,17 @@ h1{
 .main{
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 80px;
+    align-items: center;
 }
 
 .tools{
     width: 400px;
     display: flex;
     flex-direction: column;
-    gap: 30px
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
 }
 .input, .color-selection{
     display: flex;
@@ -44,7 +47,7 @@ h1{
     padding: 5px;
     border: 2px solid #555;
 }
-.input button{
+.input button, .clear{
     padding: 10px 20px;
     border-radius: 10px;
     color: aliceblue;
@@ -78,6 +81,9 @@ h1{
     cursor: pointer;
 }
 
+.clear{
+
+}
 
 
 
@@ -99,3 +105,4 @@ h1{
 
 
 }
+

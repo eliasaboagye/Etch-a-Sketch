@@ -67,16 +67,19 @@ function createGrid(n){
                 let opacity = Number(item.dataset.opacity);
 
                 // Increase opacity by 0.1 (10%)
-                
-                opacity += 0.1;
-                opacity = Math.min(opacity, 1); // cap at 1
+                if(opacity < 1){
+                    opacity += 0.1;
+                    opacity = Math.min(opacity, 1); // cap at 1
 
-                // Store new opacity
-                item.dataset.opacity = opacity;
+                    // Store new opacity
+                    item.dataset.opacity = opacity;
+                    // Apply new opacity
+                    const [r, g, b] = hexToRgb(colorPicker.value);
+                    item.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+                }
 
-                // Apply new opacity
-                const [r, g, b] = hexToRgb(colorPicker.value);
-                item.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+
+
                 
             }else{
                 item.style.backgroundColor = colorPicker.value;
@@ -86,8 +89,6 @@ function createGrid(n){
     })
 
 }
-
-
 
 
 function applyGrid(){
@@ -105,8 +106,6 @@ let n = 16;
 createGrid(n);
 
 
-
-
 //apply grid when button is clicked
 applyBtn.addEventListener('click', applyGrid );
 //aply grid when enter key is pressed
@@ -116,3 +115,8 @@ gridSize.addEventListener('keydown', (e)=>{
     }
 })
 
+
+const clearBtn = document.querySelector(".clear");
+clearBtn.addEventListener('click', () =>{
+    items.forEach(item => item.style.backgroundColor = 'aliceblue');
+})
