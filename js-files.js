@@ -1,13 +1,23 @@
 //start up grid size
-let n = 16;
+
 
 const gridSize = document.querySelector("input")
 const applyBtn = document.querySelector("button")
 const container = document.querySelector(".container");
+let colorPicker = document.querySelector('#colorPicker');
+const randomColors = document.querySelector('#randomColors');
 let items;
-// let color = "blue"
-// n = gridSize;
+let bgColor = colorPicker.value;
 
+let randomColorIsOn = false;
+randomColors.addEventListener('click',()=>{
+    randomColorIsOn = !randomColorIsOn;
+    if(randomColorIsOn){
+        randomColors.style.backgroundColor = "rgb(38, 152, 240)"
+    }else{
+        randomColors.style.backgroundColor = "aliceblue"
+    }
+})
 function random(n){
     return Math.floor(Math.random() * n + 1);
 }
@@ -22,14 +32,19 @@ function createGrid(n){
     items.forEach((item)=>{
         item.style.flexBasis = `${100/n}%`;
     })
-
     items.forEach((item)=>{
 
         item.addEventListener('mouseenter', (e)=>{
-            e.target.style.backgroundColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+            if(randomColorIsOn){
+                e.target.style.backgroundColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+            }else{
+                e.target.style.backgroundColor = colorPicker.value
+            }
+            ;
             })
     })
 }
+
 
 function applyGrid(){
 
@@ -42,7 +57,11 @@ function applyGrid(){
     })
     createGrid(n);
 }
+let n = 16;
 createGrid(n);
+
+
+
 
 //apply grid when button is clicked
 applyBtn.addEventListener('click', applyGrid );
