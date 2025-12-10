@@ -48,7 +48,7 @@ createGrid(n);
 applyBtn.addEventListener('click', applyGrid );
 //aply grid when enter key is pressed
 gridSize.addEventListener('keydown', (e)=>{
-    if(e.key === 'enter'){
+    if(e.key === 'Enter'){
         applyGrid();
     }
 })
