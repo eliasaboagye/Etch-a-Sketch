@@ -48,7 +48,7 @@ h1{
     padding: 10px 20px;
     border-radius: 10px;
     color: aliceblue;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     cursor: pointer;
 }
 #colorPicker{
@@ -61,13 +61,6 @@ h1{
   cursor: pointer;
 
 }
-#randomColors{
-    padding: 10px 20px;
-    border: 2px solid #555;
-    border-radius: 10px;
-    font-size: 20px;
-    cursor: pointer;
-}
 
 #colorPicker::-webkit-color-swatch-wrapper {
   padding: 0;
@@ -76,6 +69,16 @@ h1{
   border: none;
   border-radius: 50%;
 }
+
+#randomColors, #progressiveDarkness{
+    padding: 10px 20px;
+    border: 2px solid #555;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
 
 
 
